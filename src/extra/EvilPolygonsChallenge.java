@@ -4,21 +4,37 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 import org.jointheleague.graphical.robot.Robot;
-
 public class EvilPolygonsChallenge {
 	
 	public static void main(String[] args) {
 		
 		//1. Create a new Robot
-
+Robot name= new Robot();
 		//2. Set the speed to 100
-
-		int colorChoice=JOptionPane.showOptionDialog(null, "hello", "title", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new String[]{"Color 1","Color 2", "Color 3"}, 0);
+name.setSpeed(100);
+		int colorChoice=JOptionPane.showOptionDialog(null, "hello", "title", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new String[]{"0","1", "2"}, 0);
 		
 		//3. Use if statements to check the the value of colorChoice and set the pen color accordingly 
+		if(colorChoice==0) {
+		name.setPenColor(0,0,255);
+		}
+		else if(colorChoice==1) {
+		name.setPenColor(255,0,0);
+		}
+		else if(colorChoice==2) {
+		name.setPenColor(255,255,0);
+		}
 		
 		//4. Ask the use how many polygons they want to be drawn.
-		
+		String shape=JOptionPane.showInputDialog(null,"hoe many  polygons do you want to draw");
+		int am=Integer.parseInt(shape) ;
+		for (int i = 0; i < am; i++) {
+			name.move(100);
+			name.turn(90);
+			name.move(100);
+			name.turn(90);
+			
+		}
 		//5. Use the robot to draw the number of polygons the user requested.
 		
 		//6. Make it so your shapes do not overlap
